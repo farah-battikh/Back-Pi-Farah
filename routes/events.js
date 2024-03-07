@@ -2,19 +2,20 @@ const express = require('express');
 const router = express.Router();
 const Event = require('../models/event');
 
+// Route pour ajouter un événement
 router.post('/events/add', async (req, res) => {
-    console.log('Requête POST reçue avec les données :', req.body);
-  
-    try {
-      const event = new Event(req.body);
-      await event.save();
-      console.log('Événement sauvegardé avec succès :', event);
-      res.status(201).send(event);
-    } catch (error) {
-      console.error('Erreur lors de la sauvegarde de l\'événement :', error);
-      res.status(400).send(error);
-    }
-  });
+  console.log('Requête POST reçue avec les données :', req.body);
+
+  try {
+    const event = new Event(req.body);
+    await event.save();
+    console.log('Événement sauvegardé avec succès :', event);
+    res.status(201).send(event);
+  } catch (error) {
+    console.error('Erreur lors de la sauvegarde de l\'événement :', error);
+    res.status(400).send(error);
+  }
+});
 
 // Route pour récupérer tous les événements
 router.get('/events', async (req, res) => {
