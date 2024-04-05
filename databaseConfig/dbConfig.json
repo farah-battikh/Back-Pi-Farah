@@ -1,5 +1,5 @@
 {
     "mongo":{
-        "uri":"mongodb://mongodb-container:27017/evenements"
+        "uri":"mongodb://192.168.220.130:27017/evenements"
     }
 }
